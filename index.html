@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6 meses nossos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================================================== -->
+  <!-- TELA DE ABERTURA (envelope). Troque o texto se quiser -->
+  <!-- ===================================================== -->
+  <section id="envelope-screen">
+    <div class="envelope" id="envelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-body">
+        <p class="envelope-label">Para Gloria</p>
+      </div>
+    </div>
+    <p class="envelope-hint">Toque para abrir</p>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- CONTEÚDO PRINCIPAL (some escondido até abrir o envelope) -->
+  <!-- ===================================================== -->
+  <main id="main-content" hidden>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-photo-frame">
+        <img id="hero-photo" src="img/01.jpeg" alt="Foto de nós dois" onerror="this.style.display='none'; this.parentElement.classList.add('sem-foto')">
+      </div>
+      <p class="hero-eyebrow" id="hero-date">05 . 03 . 2026</p>
+      <h1 class="hero-title" id="hero-title">Seis meses<br>com Você</h1>
+      <p class="hero-subtitle" id="hero-subtitle">um site pequeno pra guardar coisas grandes.</p>
+      <button class="scroll-cue" id="scroll-cue" aria-label="Rolar para a história">rolar a nossa história ↓</button>
+    </section>
+
+    <!-- LINHA DO TEMPO -->
+    <section class="timeline-section">
+      <h2 class="section-title">A NOSSA história até aqui</h2>
+      <div class="timeline" id="timeline">
+        <!-- gerado via JS a partir do array MOMENTS em script.js -->
+      </div>
+    </section>
+
+    <!-- TRILHA SONORA -->
+    <section class="music-section">
+      <h2 class="section-title">A NOSSA trilha sonora</h2>
+      <p class="music-intro" id="music-intro">as músicas que marcaram esses seis meses. dá o play.</p>
+      <ul class="playlist" id="playlist">
+        <!-- gerado via JS a partir do array SONGS em script.js -->
+      </ul>
+    </section>
+
+    <!-- CARTA -->
+    <section class="letter-section">
+      <h2 class="section-title">Uma Carta</h2>
+      <article class="letter" id="letter">
+        <!-- gerado via JS a partir de LETTER_TEXT em script.js -->
+      </article>
+      <p class="letter-signature" id="letter-signature">com amor,</p>
+    </section>
+
+    <footer class="site-footer">
+      <p id="footer-text">feito à mão para os nossos seis meses.</p>
+    </footer>
+
+  </main>
+
+  <!-- ===================================================== -->
+  <!-- PLAYER FIXO ESTILO SPOTIFY -->
+  <!-- ===================================================== -->
+  <div class="player-bar" id="player-bar" hidden>
+    <audio id="audio" preload="metadata"></audio>
+
+    <div class="player-track-info">
+      <img id="player-cover" class="player-cover" src="" alt="Capa da música">
+      <div class="player-text">
+        <p class="player-song-title" id="player-song-title">selecione uma música</p>
+        <p class="player-song-artist" id="player-song-artist">—</p>
+      </div>
+    </div>
+
+    <div class="player-controls">
+      <div class="player-buttons">
+        <button id="btn-prev" class="player-btn" aria-label="Voltar">
+          <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM9.5 12l9-6v12z"/></svg>
+        </button>
+        <button id="btn-play" class="player-btn player-btn-main" aria-label="Tocar">
+          <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="icon-pause" viewBox="0 0 24 24" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <button id="btn-next" class="player-btn" aria-label="Avançar">
+          <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM4.5 6l9 6-9 6z"/></svg>
+        </button>
+      </div>
+      <div class="player-progress-row">
+        <span class="player-time" id="time-current">0:00</span>
+        <input type="range" id="progress" class="player-progress" value="0" min="0" max="100" step="0.1">
+        <span class="player-time" id="time-total">0:00</span>
+      </div>
+    </div>
+
+    <div class="player-volume">
+      <svg viewBox="0 0 24 24" class="volume-icon"><path d="M3 10v4h4l5 5V5L7 10H3zM16.5 12a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+      <input type="range" id="volume" class="player-progress player-volume-range" value="80" min="0" max="100" step="1">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
